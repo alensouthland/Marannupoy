@@ -1,0 +1,120 @@
+<style>
+	body
+	{
+		text-align: center;
+		background-image: url("https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg");
+		background-size: 1920px 1080px;
+        background-repeat: no-repeat;
+		color: white;
+		font-family: sans-serif;
+	}
+
+	h2
+	{
+		color: white;
+		font-size: 50px;
+	}
+
+	.header
+	{
+		border: 3px solid #FFFFFF;
+    border-radius: 8px;
+		font-size: 35px;
+		color: #263238;
+	}
+
+	.listing
+	{
+		/*width: 35%;*/
+        padding: 5px 15px;
+        display: inline-block;
+        background-color: white;
+        border: 3px solid #FFFFFF;
+        border-radius: 8px;
+        color: #263238;
+        font-family: sans-serif;
+    }
+
+    .action-show
+    {
+    	text-decoration: none;
+    	color: #2196F3;
+    }
+
+    th
+    {
+    	border: 3px solid #FFFFFF;
+    	background-color: white;
+    	padding: 13px 9px;
+    	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+		td
+		{
+			font-size: 22px;
+		}
+    .back
+    {
+
+        text-decoration: none;
+        font-size: 10px;
+        padding: 7px 7px;
+        color: white;
+        border-radius: 16px;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .back:hover
+    {
+        background-color: white;
+        color: #212121;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+
+
+</style>
+
+
+<body>
+
+<%= link_to("  <<", {:controller => 'losts', :action => 'new'}, :class => 'back') %>
+<div class="lost_list">
+	<h2>LOSTS</h2>
+
+	<table class="listing" summary="Lost list" align="center">
+		<tr class="header">
+			<th>Item Name</th>
+			<th>Date Lost</th>
+			<th>Place Lost</th>
+			<th>Details</th>
+		</tr><br><br><br><br>
+
+		<% @losts.each do |lost| %>
+			<tr>
+			<td><%= lost.lost_item_name %></td>
+			<td><%= lost.lost_date %></td>
+			<td><%= lost.lost_place %></td>
+
+			<td class="actions">
+				<%= link_to("Show", {:controller => 'losts', :action => 'show_one', :id => lost.id}, :class => 'action-show') %>
+				<%= link_to("Edit", {:controller => 'losts', :action => 'edit', :id => lost.id}, :class => 'action-show') %>
+				<%= link_to("Delete", {:controller => 'losts', :action => 'delete', :id => lost.id}, :class => 'action-show') %>
+			</td>
+			</tr>
+		<% end %>
+		<%= Time.now.strftime("%Y-%m-%d") %>
+
+	</table>
+</div>
+</body>
+
+<hr>
+<%#= params.inspect %>

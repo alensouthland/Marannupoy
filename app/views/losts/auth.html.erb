@@ -1,0 +1,14 @@
+  <p>Authenticate yourself please</p>
+<%#= @lost_temp %><%= @auth %>
+<%= form_for(:lost, :url => {:controller => 'losts', :action => 'auth_t' }, :class => 'form-css') do |f| %>
+    <table summary="Lost form fields" align="center">
+        <tr>
+            <th><%= f.text_field(:lost_auth_key) %></th>
+        </tr>
+
+    </table><br>
+
+<%= submit_tag(">>", :class => 'submit-link') %>
+
+<%end%>
+<%#= params.inspect %>

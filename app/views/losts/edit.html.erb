@@ -1,0 +1,164 @@
+<style>
+
+    body
+    {
+        background-image: url("https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg");
+        background-size: 1920px 1080px;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+
+    .home-link
+    {
+        text-decoration: none;
+        font-size: 50px;
+        padding: 0px 80px;
+        color: #FFFFFF;
+        text-align: center;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: none;
+    }
+
+    p
+    {
+        font-size: 30px;
+        padding: 0px 80px;
+        color: #FFFFFF;
+        text-align: center;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: none;
+    }
+
+    .back-link
+    {
+        text-decoration: none;
+        font-size: 15px;
+        padding: 15px 20px;
+        color: white;
+        border-radius: 10px;
+        text-align: center;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .back-link:hover
+    {
+        background-color: white;
+        color: #212121;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .form-css
+    {
+
+        width: 35%;
+        padding: 50px 55px;
+        display: inline-block;
+        border: 3px solid #FFFFFF;
+        border-radius: 8px;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+
+    .lost-new
+    {
+        font-family: sans-serif;
+        color: white;
+        font-size: 20px;
+    }
+
+    table
+    {
+        width: 35%;
+        padding: 30px 25px;
+        display: inline-block;
+        border: 3px solid #ccc;
+        border-radius: 8px;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+
+    .qsearch
+    {
+        text-decoration: none;
+        font-size: 10px;
+        padding: 5px 7px;
+        color: white;
+        border-radius: 10px;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .qsearch:hover
+    {
+        background-color: white;
+        color: #212121;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+</style>
+
+
+
+
+<head>
+<%= link_to("<< View List", {:action => 'list'}, :class => 'back-link') %>
+<br><br><br><br>&nbsp;
+</head>
+
+
+
+<%= link_to("FETCHBACK", {:controller => 'losts', :action => 'home'}, :class => 'home-link') %><br>
+
+<%#= form_tag search_results_path, method: 'get' do %>
+    <%#= text_field_tag :search_keywords %>
+    <%#= submit_tag "Quick Search", :controller => "losts", :action => "show_one", :class => 'qsearch' %>
+<%# end %>
+<div class = "lost-new">
+    <p>lost</p>
+
+    <%= form_for(:lost, :url => {:action => 'update', :class => 'form-css'}) do |f| %>
+        <table summary="Lost form fields" align="center">
+            <tr>
+                <td>Item Name</td>
+                <td><%= f.text_field(:lost_item_name) %></td>
+            </tr>
+            <tr>
+                <td>Item Description</td>
+                <td><%= f.text_field(:lost_item_desc)%></td>
+            </tr>
+            <tr>
+                <td>Phone no</td>
+                <td><%= f.telephone_field(:lost_phone_no) %></td>
+            </tr>
+            <tr>
+                <td>lost Date</td>
+                <td><%= f.date_field(:lost_date) %></td>
+            </tr>
+            <tr>
+                <td>lost Place</td>
+                <td><%= f.text_field(:lost_place) %></td>
+            </tr>
+        </table>
+
+    <div class="form-buttons">
+        <%= submit_tag("Update", :class => 'back-link') %>
+    </div>
+
+    <% end %>
+</div>

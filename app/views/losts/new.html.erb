@@ -1,0 +1,226 @@
+<style>
+
+    body
+    {
+        background-size: 1920px 1080px;
+        background-image: url("https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg");
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+
+    .home-link
+    {
+
+      -webkit-transition-duration: 0.2s; /* Safari */
+        transition-duration: 0.2s;
+        text-decoration: none;
+        font-size: 50px;
+        padding: 0px 80px;
+        color: #FFFFFF;
+        text-align: center;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: none;
+    }
+
+    .home-link:hover
+	{
+		  -webkit-transition-duration: 0.2s; /* Safari */
+        transition-duration: 0.2s;
+        cursor: pointer;
+				font-size: 55px;
+    }
+
+    p
+    {
+        font-size: 30px;
+        padding: 0px 80px;
+        color: #FFFFFF;
+        text-align: center;
+        font-family: sans-serif;
+        background-color: transparent;
+        border: none;
+    }
+
+    /*th
+    {
+        /*width: 35%;
+        padding: 5px 5px;
+        /*display: inline-block;
+        border: none;
+        border-radius: 18px;
+        color: transparent;
+        background-color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+    }*/
+
+    .back-link
+    {
+        text-decoration: none;
+        font-size: 15px;
+        padding: 15px 20px;
+        color: white;
+        border-radius: 40px;
+        /*text-align: center;*/
+        font-family: sans-serif;
+        background-color: transparent;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .back-link:hover
+    {
+        background-color: white;
+        color: grey;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+        .submit-link
+    {
+        text-decoration: none;
+        font-size: 35px;
+        padding: 10px 20px;
+        color: #9E9E9E;
+        border-radius: 38px;
+        position: relative;
+        top: -68px;
+        left: 215px;
+        /*text-align: center;*/
+        font-family: sans-serif;
+        background-color: #FFFFFF;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .submit-link:hover
+    {
+        background-color: white;
+        color: #212121;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        padding: 12px 22px;
+        border-radius: 40px;
+        box-shadow: 0 16px 16px 0 rgba(0,0,0,0.34), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .form-css
+    {
+
+        width: 35%;
+        padding: 50px 55px;
+        display: inline-block;
+        border: 3px solid #FFFFFF;
+        border-radius: 8px;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+
+    .lost-new
+    {
+        font-family: sans-serif;
+        color: white;
+        font-size: 20px;
+    }
+
+    table
+    {
+        width: 35%;
+        padding: 30px 15px;
+        display: run-in;
+        background-color: white;
+        border: 3px solid #FFFFFF;
+        border-radius: 8px;
+        color: grey;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+
+    .qsearch
+    {
+        text-decoration: none;
+        font-size: 10px;
+        padding: 7px 11px;
+        position: relative;
+        top: -2px;
+        left: -10px;
+        color: white;
+        border-radius: 16px;
+        font-family: sans-serif;
+        background-image: url("https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Ma82f3f2d1339eb211d6b78bb93ee05d9o0%26pid%3D15.1&f=1");
+        background-repeat: round;
+        border: 3px solid #FFFFFF;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .qsearch:hover
+    {
+        background-color: white;
+        color: #212121;
+        -webkit-transition-duration: 0.2s; /* Safari */
+        transition-duration: 0.2s;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: 20px;
+        box-shadow: 0 16px 16px 0 rgba(0,0,0,0.44), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+</style>
+
+<head>
+
+<%= link_to("<< View List", {:action => 'list'}, :class => 'back-link') %>
+<br><br><br><br>&nbsp;
+
+
+</head>
+
+<body>
+<%= link_to("FETCHBACK", {:controller => 'losts', :action => 'home'}, :class => 'home-link') %><br>
+
+<%= form_tag search_result_path, method: 'get' do %>
+    <%= text_field_tag :search_keyword %>
+    <%= submit_tag " ", :controller => "founds", :action => "show_two", :class => 'qsearch' %>
+<% end %> <br><br><br><br>
+
+<div class = "lost-new">
+    <p>REPORT A LOST ITEM</p>
+    <%= form_for(:lost, :url => {:action => 'create', :class => 'form-css'}) do |f| %>
+        <table summary="Lost form fields" align="center">
+            <tr>
+                <td>Item Name</td>
+                <th><%= f.text_field(:lost_item_name) %></th>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <th><%= f.text_field(:lost_item_desc)%></th>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <th><%= f.telephone_field(:lost_phone_no) %></th>
+            </tr>
+            <tr>
+                <td>Lost Date</td>
+                <th><%= f.date_field(:lost_date) %></th>
+            </tr>
+            <tr>
+                <td>Lost Place</td>
+                <th><%= f.text_field(:lost_place) %></th>
+            </tr>
+            <%# :lost_key => :created_at %>
+        </table><br>
+
+    <%= submit_tag("+", :class => 'submit-link') %>
+
+    <% end %>
+</div>
+</body>
